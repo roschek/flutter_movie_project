@@ -1,2 +1,2 @@
-# first_big_app
+# app for search films, movies or TV show
 
