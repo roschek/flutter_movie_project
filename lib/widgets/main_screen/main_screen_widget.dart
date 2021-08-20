@@ -1,3 +1,6 @@
+//import 'package:first_big_app/movie_list/movie_list_widget.dart';
+
+import 'package:first_big_app/widgets/movie_list/movie_list_widget.dart';
 import 'package:flutter/material.dart';
 
 class MainScreenWidget extends StatefulWidget{
@@ -10,11 +13,7 @@ class MainScreenWidget extends StatefulWidget{
 class _MainScreenWidgetState extends State<MainScreenWidget> {
   int _selectedTab = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Фильмы'),
-    Text('Сериалы'),
-    Text('ТВ Шоу')
-  ];
+
 
   void onSelectedTab(int index) {
     if(_selectedTab == index) return;
@@ -29,8 +28,13 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
         centerTitle: true,
         title: Text('Все о кино'),
       ),
-      body: Center(
-        child: _widgetOptions[_selectedTab]
+      body: IndexedStack(
+        index: _selectedTab,
+        children: [
+          MovieListWidget(),
+          Text('Сериалы'),
+          Text('ТВ Шоу')
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTab,

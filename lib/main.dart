@@ -1,4 +1,6 @@
+
 import 'package:first_big_app/widgets/main_screen/main_screen_widget.dart';
+import 'package:first_big_app/widgets/movie_details/movie_details_widget.dart';
 import 'package:flutter/material.dart';
 import './widgets/auth/auth_widget.dart';
 void main() {
@@ -24,10 +26,17 @@ class MyApp extends StatelessWidget {
       initialRoute: '/main',
       routes: {
         '/auth': (context) => AuthWidget(),
-        '/main': (context) => MainScreenWidget()
-      },
-
-    );
+        '/main': (context) => MainScreenWidget(),
+        '/main/movie_details' : (context){
+          final arguments = ModalRoute.of(context)?.settings.arguments as int;
+          if(arguments is int) {
+          return MovieDetailsWidget(movieId: arguments);}
+          else {
+            return MovieDetailsWidget(movieId: 1);}
+          }
+        }
+        );
+      }
   }
-}
+
 
