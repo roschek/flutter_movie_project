@@ -1,7 +1,8 @@
-import 'package:first_big_app/widgets/movie_list/movie_details_sections/movie_details_main_info.dart';
+
 import 'package:flutter/material.dart';
 
 import 'movie_details_sections/movie_details_main_info.dart';
+import 'movie_details_sections/movie_details_screencast_widget.dart';
 
 class MovieDetailsWidget extends StatefulWidget {
   final int movieId;
@@ -21,6 +22,7 @@ class _MovieDetailsState extends State<MovieDetailsWidget> {
           child: ListView(
             children: [
               MovieDetailsMainInfoWidget(),
+              MovieDetailsScreencastWidget()
             ],
           )),
     );

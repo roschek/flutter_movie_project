@@ -7,56 +7,56 @@ class MovieDetailsMainInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _TopPosterWidget(),
-        _TitleWidget(),
-        ButtonsWidget(),
-        Padding(padding: EdgeInsets.only(top:20, left:50, right: 50, bottom:30),
-            child:_SummaryWidget()),
-        Text('Overview', style: TextStyle(color: Colors.white) ),
-        Text('Lorem fvgdfe bvb dfsgtght gbhgh rtfhjuk nkuyk tyrty dgh tkluiltl gk,.oi;p'
-            'sdgfhthjty kjyukyuk luil', style: TextStyle(color: Colors.white)),
-        SizedBox(height: 20),
-        Row(
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      _TopPosterWidget(),
+      _TitleWidget(),
+      ButtonsWidget(),
+      Padding(
+          padding: EdgeInsets.only(top: 20, left: 50, right: 50, bottom: 30),
+          child: _SummaryWidget()),
+      Text('Overview', style: TextStyle(color: Colors.white)),
+      Text(
+          'Lorem fvgdfe bvb dfsgtght gbhgh rtfhjuk nkuyk tyrty dgh tkluiltl gk,.oi;p'
+          'sdgfhthjty kjyukyuk luil',
+          style: TextStyle(color: Colors.white)),
+      SizedBox(height: 20),
+      Row(
           mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Column(
               children: [
-                Text('Stefano Solimo',style: TextStyle(color: Colors.white)),
-                Text('Director',style: TextStyle(color: Colors.white))
-              ],),
+                Text('Stefano Solimo', style: TextStyle(color: Colors.white)),
+                Text('Director', style: TextStyle(color: Colors.white))
+              ],
+            ),
             Column(
               children: [
-                Text('Stefano Solimo',style: TextStyle(color: Colors.white)),
-                Text('Director',style: TextStyle(color: Colors.white))
+                Text('Stefano Solimo', style: TextStyle(color: Colors.white)),
+                Text('Director', style: TextStyle(color: Colors.white))
               ],
             )
-            ]
+          ]),
+      SizedBox(height: 20),
+      Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              children: [
+                Text('Stefano Solimo', style: TextStyle(color: Colors.white)),
+                Text('Director', style: TextStyle(color: Colors.white))
+              ],
             ),
-        SizedBox(height: 20),
-        Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                children: [
-                  Text('Stefano Solimo',style: TextStyle(color: Colors.white)),
-                  Text('Director',style: TextStyle(color: Colors.white))
-                ],),
-              Column(
-                children: [
-                  Text('Stefano Solimo',style: TextStyle(color: Colors.white)),
-                  Text('Director',style: TextStyle(color: Colors.white))
-                ],
-              )
-            ]
-        )
-        ]
-        );
-       }
+            Column(
+              children: [
+                Text('Stefano Solimo', style: TextStyle(color: Colors.white)),
+                Text('Director', style: TextStyle(color: Colors.white))
+              ],
+            )
+          ])
+    ]);
+  }
 }
 
 class _TopPosterWidget extends StatelessWidget {
@@ -70,16 +70,18 @@ class _TopPosterWidget extends StatelessWidget {
           image: AssetImage(AppImages.cardImage),
           fit: BoxFit.cover,
           width: 600,
-          height: 300,),
-          Positioned(
-            top:10,
-            left:10,
+          height: 300,
+        ),
+        Positioned(
+            top: 10,
+            left: 10,
             bottom: 10,
-            child:Image(
-            image: AssetImage(AppImages.cardImage),
-            fit: BoxFit.contain,
-            width: 200,
-            height: 250,))
+            child: Image(
+              image: AssetImage(AppImages.cardImage),
+              fit: BoxFit.contain,
+              width: 200,
+              height: 250,
+            ))
       ],
     );
   }
@@ -90,29 +92,21 @@ class _TitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.all(10),
-        child:RichText(
-      maxLines: 3,
-        text: TextSpan(
-        children: [
-          TextSpan(
-            text: 'Dune its all what we wait ',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20)
-          ),
-          TextSpan(
-            text:'2021', style: TextStyle(color: Colors.grey)
-          )
-        ]
-      )
-    )
-    );
+    return Padding(
+        padding: EdgeInsets.all(10),
+        child: RichText(
+            maxLines: 3,
+            text: TextSpan(children: [
+              TextSpan(
+                  text: 'Dune its all what we wait ',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+              TextSpan(text: '2021', style: TextStyle(color: Colors.grey))
+            ])));
   }
 }
 
 class _SummaryWidget extends StatelessWidget {
-  const _SummaryWidget ({Key? key}) : super(key: key);
+  const _SummaryWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -131,23 +125,17 @@ class ButtonsWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextButton(onPressed: (){},
-            child: Text('raiting 99%',style: TextStyle(color: Colors.white))),
-        Container(
-          width: 1,
-          height: 15,
-          color: Colors.grey
-        ),
-        TextButton(onPressed: (){},
-            child: Row(
-              children:[
-                Icon(Icons.play_arrow),
-                Text('Посмотреть трейлер',style: TextStyle(color: Colors.white))
-              ]
-            ))
-
+        TextButton(
+            onPressed: () {},
+            child: Text('raiting 99%', style: TextStyle(color: Colors.white))),
+        Container(width: 1, height: 15, color: Colors.grey),
+        TextButton(
+            onPressed: () {},
+            child: Row(children: [
+              Icon(Icons.play_arrow),
+              Text('Посмотреть трейлер', style: TextStyle(color: Colors.white))
+            ]))
       ],
     );
   }
 }
-
