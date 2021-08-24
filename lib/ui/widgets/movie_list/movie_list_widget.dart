@@ -1,6 +1,6 @@
 import 'package:first_big_app/domains/api_client/api_client.dart';
 import 'package:first_big_app/library/notify_provider.dart';
-import 'package:first_big_app/ui/navigation/main_navigation.dart';
+
 import 'package:first_big_app/ui/widgets/movie_list/movie_list_model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -92,6 +92,7 @@ class MovieListWidget extends StatelessWidget {
       Padding(
           padding: EdgeInsets.all(10),
           child: TextField(
+            onChanged: model.searchMovie,
             decoration: InputDecoration(
                 labelText: 'Поиск',
                 filled: true,

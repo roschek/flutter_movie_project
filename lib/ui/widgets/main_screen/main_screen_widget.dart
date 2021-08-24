@@ -32,7 +32,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
   @override
   void initState() {
     super.initState();
-    movieListModel.loadMovies();
+    movieListModel.loadNextPage();
   }
   @override
   Widget build(BuildContext context) {

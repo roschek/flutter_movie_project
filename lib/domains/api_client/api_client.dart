@@ -67,7 +67,21 @@ class ApiClient {
 
   Future<PopularMovieResponse> takePopularMovies(int page) async {
     final currentPage = page.toString();
-    final url = Uri.parse('$_host/movie/popular?api_key=$_apiKey&language=ru-RU&page=$currentPage');
+    final url = Uri.parse(
+        '$_host/movie/popular?api_key=$_apiKey&language=ru-RU&page=$currentPage');
+    final request = await _client.getUrl(url);
+    final response = await request.close();
+    final json = await response.jsonDecode() as Map<String, dynamic>;
+    final jsonMap = json;
+    final result = PopularMovieResponse.fromJson(jsonMap);
+
+    return result;
+  }
+
+  Future<PopularMovieResponse> searchMovies(int page, String query) async {
+    final currentPage = page.toString();
+    final url = Uri.parse(
+        '$_host/search/movie?api_key=$_apiKey&language=ru-RU&page=$currentPage&query=$query&include_adult=true');
     final request = await _client.getUrl(url);
     final response = await request.close();
     final json = await response.jsonDecode() as Map<String, dynamic>;
