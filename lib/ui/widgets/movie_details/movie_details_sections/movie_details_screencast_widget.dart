@@ -1,4 +1,5 @@
-import 'package:first_big_app/widgets/services/custom_images.dart';
+
+import 'package:first_big_app/ui/widgets/services/custom_images.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
