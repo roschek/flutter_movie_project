@@ -7,8 +7,8 @@ class Movie {
   final String? posterPath;
   final bool adult;
   final String overview;
-  //@JsonKey(fromJson: _parseDateFromString)
-  final DateTime releaseDate;
+  @JsonKey(fromJson: parseDateFromString)
+  final DateTime? releaseDate;
   final List<int> genreIds;
   final int id;
   final String originalTitle;
@@ -41,7 +41,7 @@ class Movie {
 
   Map<String, dynamic> toJson() => _$MovieToJson(this);
 
-  static DateTime? _parseDateFromString(String? rawDate) {
+  static DateTime? parseDateFromString(String? rawDate) {
     if(rawDate == null || rawDate.isEmpty) return null;
     return DateTime.tryParse(rawDate);
   }

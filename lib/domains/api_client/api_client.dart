@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
-
+import 'package:first_big_app/utility/movie_details.dart';
 import 'package:first_big_app/utility/popular_movie_response.dart';
 
 class ApiClient {
@@ -88,6 +88,17 @@ class ApiClient {
     final jsonMap = json;
     final result = PopularMovieResponse.fromJson(jsonMap);
 
+    return result;
+  }
+
+  Future<MovieDetails> movieDetails(int movieId) async {
+    final url = Uri.parse(
+        '$_host/movie/$movieId?api_key=$_apiKey&language=ru-RU&append_to_response=credits');
+    final request = await _client.getUrl(url);
+    final response = await request.close();
+    final json = await response.jsonDecode() as Map<String, dynamic>;
+    final jsonMap = json;
+    final result = MovieDetails.fromJson(jsonMap);
     return result;
   }
 }
